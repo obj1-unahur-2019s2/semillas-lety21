@@ -1,0 +1,24 @@
+import semillas.*
+
+test "menta" {
+	const mentita1 = new Menta(altura=1, anioObtencion=2004)
+	assert.that(mentita1.daNuevasSemillas())
+	assert.equals(3, mentita1.espacioQueOcupa())
+	const mentita2 = new Menta(altura=0.3, anioObtencion=2004)
+	assert.notThat(mentita2.daNuevasSemillas())
+	assert.equals(0.9, mentita2.espacioQueOcupa())
+}
+
+test "soja" {
+	const sojita1 = new Soja(altura=0.6, anioObtencion=2009)
+	assert.equals(7, sojita1.horasDeSolQueTolera())
+	assert.notThat(sojita1.daNuevasSemillas())
+	assert.equals(0.3, sojita1.espacioQueOcupa())
+}
+
+test "quinoa" {
+	const qui1 = new Quinoa(altura=1, anioObtencion=2010, horasDeSolQueTolera=12)
+	assert.that(qui1.daNuevasSemillas())
+	const qui2 = new Quinoa(altura=1, anioObtencion=2001, horasDeSolQueTolera=9)
+	assert.that(qui2.daNuevasSemillas())
+}

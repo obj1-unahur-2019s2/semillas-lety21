@@ -1,0 +1,15 @@
+import parcelas.*
+import semillas.*
+
+test "test parcela" {
+	var parcelita = new Parcela(largo = 1, ancho = 20, horasDeSolQueRecibe = 8)
+	// la parcela acepta cuatro plantas
+	parcelita.plantar(new Soja(anioObtencion = 2004, altura = 2))
+	parcelita.plantar(new Soja(anioObtencion = 2004, altura = 2))
+	parcelita.plantar(new Soja(anioObtencion = 2004, altura = 2))
+	parcelita.plantar(new Soja(anioObtencion = 2004, altura = 2))
+	// al intentar agregar una quinta planta, debe dar error.
+	// con el assert.throwsException verifico que la ejecución deel closure que le mando por parámetro
+	// dé error. Si ese código **no** da error, entonces falla el test.
+	assert.throwsException({parcelita.plantar(new Soja(anioObtencion = 2004, altura = 2))})
+}
